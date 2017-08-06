@@ -1,5 +1,11 @@
 ---
 
+- name: Install CIFS and other required packages for mounting
+  package:
+     name: "{{ item }}"
+     state: present
+  with_items: "{{ apt_mount_packages }}"
+
 - name: ensure devices mounted
   mount:
     name: '{{ item.name }}'
