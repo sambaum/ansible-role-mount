@@ -6,6 +6,17 @@
      state: present
   with_items: "{{ apt_mount_packages }}"
 
+- name: Create credentials File for SMB share
+  blockinfile:
+    path: /root/.smbcred
+    create: yes
+    mode: 400
+    owner: root
+    group: root
+    block: |
+      username=share
+      password={{ vault_share_password }}
+
 - name: ensure devices mounted
   mount:
     name: '{{ item.name }}'
