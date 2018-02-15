@@ -14,7 +14,7 @@
     owner: root
     group: root
     block: |
-      username=share
+      username={{ share_user }}
       password={{ vault_share_password }}
 
 - name: ensure devices mounted
