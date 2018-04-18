@@ -1,0 +1,4 @@
+packages:
+  - samba-common 
+  - samba-client
+  - cifs-utils
