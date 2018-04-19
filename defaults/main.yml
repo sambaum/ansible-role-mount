@@ -2,4 +2,4 @@
 
 mount_devices: []
 share_user: 
-#vautl share password missing
+share_password: "{{ vault_share_password }}"
