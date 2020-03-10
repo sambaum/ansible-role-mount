@@ -20,7 +20,7 @@
       username={{ share_user }}
       password={{ share_password }}
 
-- name: ensure devices mounted
+- name: Mount devices if available
   mount:
     name: '{{ item.name }}'
     src: '{{ item.src }}'
@@ -31,3 +31,4 @@
     passno: '{{ item.passno | default("0") }}'
     fstab: '{{ item.fstab | default("/etc/fstab") }}'
   with_items: '{{ mount_devices }}'
+  ignore_errors: yes
